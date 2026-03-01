@@ -1,0 +1,48 @@
+[package]
+name = "order_book_stream"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "order_book_stream"
+path = "src/bin/order_book_stream.rs"
+
+[[bin]]
+name = "grpc_client"
+path = "src/bin/grpc_client.rs"
+
+[dependencies]
+anyhow = "1.0"
+base64 = "0.22"
+bytes = "1"
+futures = "0.3"
+futures-util = { version = "0.3.31", features = [ "sink" ] }
+hyper = { version = "1.4.1", features = [ "http1", "http2", "client" ] }
+hyper-util = { version = "0.1.7", features = [ "client", "client-legacy" ] }
+hyper-rustls = { version = "0.27.2", features = [ "http1", "http2" ] }
+http = { version = "1.1.0" }
+http-body-util = { version = "0.1.2" }
+lazy_static = "1.5.0"
+rand = "0.8.5"
+rustls = { version = "0.23.12", features = [ "aws-lc-rs" ] }
+rustls-pki-types = { version = "1", features = [ "alloc" ] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_with = "3.14.0"
+thiserror = "1.0.63"
+tokio = { version = "1.37", features = ["full"] }
+tokio-tungstenite = { version = "0.26.1", features = ["rustls-tls-webpki-roots"] }
+tokio-util = "0.7.12"
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+tracing-attributes = { version = "0.1.27" }
+tracing-appender = { version = "0.2.2" }
+tungstenite = "0.26.1"
+ordered-float = "5.1.0"
+webpki-roots = "0.26.3"
+tonic = "0.12"
+prost = "0.13"
+tokio-stream = { version = "0.1", features = ["sync"] }
+
+[build-dependencies]
+tonic-build = "0.12"
